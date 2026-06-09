@@ -23,65 +23,10 @@
     <!-- Main Content Grid -->
     <section class="pb-20 sm:pb-32 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        <div class="flex flex-col lg:grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           
-          <!-- LEFT: Contact Cards & Map -->
-          <div class="lg:col-span-2 space-y-4 sm:space-y-6">
-            <div class="glass rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 border border-white/10 relative overflow-hidden">
-              <h3 class="text-xl sm:text-2xl font-bold text-white mb-5 sm:mb-6">Informasi Kontak</h3>
-              
-              <div class="space-y-5 sm:space-y-6">
-                <!-- Location -->
-                <div class="flex gap-3 sm:gap-4">
-                  <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-orange-500/10 flex items-center justify-center text-lg sm:text-xl text-orange-400 shrink-0">
-                    📍
-                  </div>
-                  <div>
-                    <h5 class="font-semibold text-sm sm:text-base text-white">Alamat Kantor</h5>
-                    <p class="text-slate-400 text-xs sm:text-sm mt-0.5">Gedung iDevelop, Lantai 4, Jakarta, Indonesia</p>
-                    <p class="text-slate-500 text-[10px] sm:text-xs mt-0.5">Senin - Jumat: 09.00 - 18.00 WIB</p>
-                  </div>
-                </div>
-
-                <!-- Email -->
-                <div class="flex gap-3 sm:gap-4">
-                  <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-pink-500/10 flex items-center justify-center text-lg sm:text-xl text-pink-400 shrink-0">
-                    📧
-                  </div>
-                  <div>
-                    <h5 class="font-semibold text-sm sm:text-base text-white">Email Bisnis</h5>
-                    <a href="mailto:info@idevelop.id" class="text-slate-400 hover:text-white text-xs sm:text-sm block mt-0.5 transition">info@idevelop.id</a>
-                    <a href="mailto:project@idevelop.id" class="text-slate-400 hover:text-white text-xs sm:text-sm block transition">project@idevelop.id</a>
-                  </div>
-                </div>
-
-                <!-- WhatsApp -->
-                <div class="flex gap-3 sm:gap-4">
-                  <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-purple-500/10 flex items-center justify-center text-lg sm:text-xl text-purple-400 shrink-0">
-                    📱
-                  </div>
-                  <div>
-                    <h5 class="font-semibold text-sm sm:text-base text-white">WhatsApp</h5>
-                    <a href="https://wa.me/6281234567890" target="_blank" class="text-slate-400 hover:text-white text-xs sm:text-sm block mt-0.5 transition">+62 812 3456 7890</a>
-                    <p class="text-slate-500 text-[10px] sm:text-xs mt-0.5">Respon Cepat (Jam Kerja)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Maps Embedded Frame -->
-            <div class="glass rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 h-[220px] sm:h-[300px]">
-              <iframe
-                src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                class="w-full h-full border-0 grayscale opacity-80 hover:grayscale-0 duration-300"
-                allowfullscreen=""
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- RIGHT: Interactive Contact Form -->
-          <div class="lg:col-span-3 glass rounded-[24px] sm:rounded-[36px] p-6 sm:p-8 lg:p-10 border border-white/10 relative overflow-hidden">
+          <!-- RIGHT Column on Desktop, TOP Column on Mobile: Interactive Contact Form -->
+          <div class="w-full lg:col-span-3 glass rounded-[24px] sm:rounded-[36px] p-6 sm:p-8 lg:p-10 border border-white/10 relative overflow-hidden order-1 lg:order-2">
             <div v-if="!formSubmitted">
               <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Kirim Pesan</h3>
               <p class="text-slate-400 text-xs sm:text-sm mb-6 sm:mb-8">Isi formulir konsultasi di bawah ini, kami akan merespons dalam waktu 1x24 jam.</p>
@@ -183,7 +128,61 @@
                 Kirim Pesan Baru
               </button>
             </div>
+          </div>
 
+          <!-- LEFT Column on Desktop, BOTTOM Column on Mobile: Contact Cards & Map -->
+          <div class="w-full lg:col-span-2 space-y-6 order-2 lg:order-1">
+            
+            <!-- Cards Container: Swipeable horizontal on Mobile, normal vertical stack on Desktop -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:flex-col lg:space-y-6 lg:pb-0 lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0">
+              
+              <!-- Address Card -->
+              <div class="min-w-[280px] sm:min-w-0 snap-center glass rounded-2xl p-5 border border-white/10 flex gap-4 items-start flex-1">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-orange-500/10 flex items-center justify-center text-lg sm:text-xl text-orange-400 shrink-0">
+                  📍
+                </div>
+                <div>
+                  <h5 class="font-bold text-sm sm:text-base text-white">Alamat Kantor</h5>
+                  <p class="text-slate-400 text-xs sm:text-sm mt-1">Gedung iDevelop, Lantai 4, Jakarta, Indonesia</p>
+                  <p class="text-slate-500 text-[10px] sm:text-xs mt-1">Senin - Jumat: 09.00 - 18.00 WIB</p>
+                </div>
+              </div>
+
+              <!-- Email Card -->
+              <div class="min-w-[280px] sm:min-w-0 snap-center glass rounded-2xl p-5 border border-white/10 flex gap-4 items-start flex-1">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-pink-500/10 flex items-center justify-center text-lg sm:text-xl text-pink-400 shrink-0">
+                  📧
+                </div>
+                <div>
+                  <h5 class="font-bold text-sm sm:text-base text-white">Email Bisnis</h5>
+                  <a href="mailto:info@idevelop.id" class="text-slate-400 hover:text-white text-xs sm:text-sm block mt-1 transition">info@idevelop.id</a>
+                  <a href="mailto:project@idevelop.id" class="text-slate-400 hover:text-white text-xs sm:text-sm block transition">project@idevelop.id</a>
+                </div>
+              </div>
+
+              <!-- WhatsApp Card -->
+              <div class="min-w-[280px] sm:min-w-0 snap-center glass rounded-2xl p-5 border border-white/10 flex gap-4 items-start flex-1">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-purple-500/10 flex items-center justify-center text-lg sm:text-xl text-purple-400 shrink-0">
+                  📱
+                </div>
+                <div>
+                  <h5 class="font-bold text-sm sm:text-base text-white">WhatsApp</h5>
+                  <a href="https://wa.me/6281234567890" target="_blank" class="text-slate-400 hover:text-white text-xs sm:text-sm block mt-1 transition">+62 812 3456 7890</a>
+                  <p class="text-slate-500 text-[10px] sm:text-xs mt-1">Respon Cepat (Jam Kerja)</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Maps Embedded Frame -->
+            <div class="glass rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 h-[220px] sm:h-[300px]">
+              <iframe
+                src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                class="w-full h-full border-0 opacity-80 hover:opacity-100 duration-300"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
 
         </div>
@@ -210,7 +209,6 @@ const formData = reactive({
 
 const submitForm = () => {
   isSubmitting.value = true
-  // Simulate network request
   setTimeout(() => {
     isSubmitting.value = false
     formSubmitted.value = true
@@ -233,17 +231,16 @@ const resetForm = () => {
   width: 100%;
   padding: 0.85rem 1.15rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  color: white;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-primary);
   font-size: 0.825rem;
   outline: none;
   transition: all 0.3s;
 }
 
 .contact-input-style:focus {
-  border-color: rgba(239, 68, 68, 0.4);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.1);
+  border-color: var(--gradient-start);
+  box-shadow: 0 0 15px var(--gradient-glow-color);
 }
 </style>
