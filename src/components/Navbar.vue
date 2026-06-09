@@ -24,21 +24,21 @@
 
       <!-- Menu (Desktop) -->
       <div class="hidden lg:flex items-center gap-8">
-        <router-link to="/" class="nav-link"> Home </router-link>
-        <router-link to="/about" class="nav-link"> About </router-link>
-        <router-link to="/services" class="nav-link"> Services </router-link>
-        <router-link to="/portfolio" class="nav-link"> Portfolio </router-link>
-        <router-link to="/contact" class="nav-link"> Contact </router-link>
+        <router-link to="/" class="nav-link"> {{ $t('navbar.home') }} </router-link>
+        <router-link to="/about" class="nav-link"> {{ $t('navbar.about') }} </router-link>
+        <router-link to="/services" class="nav-link"> {{ $t('navbar.services') }} </router-link>
+        <router-link to="/portfolio" class="nav-link"> {{ $t('navbar.portfolio') }} </router-link>
+        <router-link to="/contact" class="nav-link"> {{ $t('navbar.contact') }} </router-link>
       </div>
 
       <!-- CTA (Desktop) -->
       <div class="hidden lg:block">
-        <router-link
-          to="/contact"
-          class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 px-6 py-2.5 rounded-2xl font-semibold hover:scale-105 duration-300 inline-block text-white text-sm shadow-lg shadow-orange-500/15 glow"
+        <button
+          @click="triggerConsultation"
+          class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 px-6 py-2.5 rounded-2xl font-semibold hover:scale-105 duration-300 inline-block text-white text-sm shadow-lg shadow-orange-500/15 glow cursor-pointer"
         >
-          Konsultasi Gratis
-        </router-link>
+          {{ $t('navbar.cta') }}
+        </button>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -52,19 +52,18 @@
     <transition name="fade">
       <div v-if="open" class="lg:hidden mt-3 glass rounded-[28px] p-6 border border-slate-200/50 shadow-xl bg-white/95 backdrop-blur-2xl">
         <div class="flex flex-col gap-4">
-          <router-link to="/" class="nav-link py-2 border-b border-slate-100" @click="open = false"> Home </router-link>
-          <router-link to="/about" class="nav-link py-2 border-b border-slate-100" @click="open = false"> About </router-link>
-          <router-link to="/services" class="nav-link py-2 border-b border-slate-100" @click="open = false"> Services </router-link>
-          <router-link to="/portfolio" class="nav-link py-2 border-b border-slate-100" @click="open = false"> Portfolio </router-link>
-          <router-link to="/contact" class="nav-link py-2" @click="open = false"> Contact </router-link>
+          <router-link to="/" class="nav-link py-2 border-b border-slate-100" @click="open = false"> {{ $t('navbar.home') }} </router-link>
+          <router-link to="/about" class="nav-link py-2 border-b border-slate-100" @click="open = false"> {{ $t('navbar.about') }} </router-link>
+          <router-link to="/services" class="nav-link py-2 border-b border-slate-100" @click="open = false"> {{ $t('navbar.services') }} </router-link>
+          <router-link to="/portfolio" class="nav-link py-2 border-b border-slate-100" @click="open = false"> {{ $t('navbar.portfolio') }} </router-link>
+          <router-link to="/contact" class="nav-link py-2" @click="open = false"> {{ $t('navbar.contact') }} </router-link>
           
-          <router-link 
-            to="/contact" 
-            class="mt-4 px-6 py-3 rounded-2xl font-semibold bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-center text-white text-sm shadow-md shadow-orange-500/10"
-            @click="open = false"
+          <button 
+            @click="triggerConsultationMobile" 
+            class="mt-4 px-6 py-3 rounded-2xl font-semibold bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-center text-white text-sm shadow-md shadow-orange-500/10 cursor-pointer"
           >
-            Konsultasi Gratis 🚀
-          </router-link>
+            {{ $t('navbar.cta') }} 🚀
+          </button>
         </div>
       </div>
     </transition>
@@ -80,6 +79,15 @@ const open = ref(false)
 
 const handleScroll = () => {
   scrolled.value = window.scrollY > 40
+}
+
+const triggerConsultation = () => {
+  window.dispatchEvent(new CustomEvent('open-consultation'))
+}
+
+const triggerConsultationMobile = () => {
+  open.value = false
+  window.dispatchEvent(new CustomEvent('open-consultation'))
 }
 
 onMounted(() => {

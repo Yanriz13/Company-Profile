@@ -34,73 +34,37 @@
         <p class="text-xs text-slate-400 mt-2 block lg:hidden">← Geser horizontal untuk melihat semua portofolio →</p>
       </div>
 
-      <!-- Portfolio Grid: Horizontal Scroll on Mobile, Balanced Flow Grid on Desktop -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-8 px-4 -mx-4 lg:px-0 lg:mx-0 pl-6 pr-6">
-        
-        <!-- Featured Card (Spans 2 columns on Desktop, takes 85% screen width on Mobile) -->
-        <div class="min-w-[85vw] lg:min-w-0 lg:col-span-2 snap-center group">
-          <div class="glass overflow-hidden rounded-[24px] sm:rounded-[36px] h-full border border-white/10 flex flex-col justify-between">
-            <div class="overflow-hidden h-48 sm:h-72">
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600"
-                class="w-full h-full object-cover group-hover:scale-110 duration-700"
-              />
-            </div>
-
-            <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="px-3 py-1 rounded-full text-xs bg-orange-500/10 text-orange-600 border border-orange-500/20 font-bold">
-                  Dashboard Analytics
-                </span>
-
-                <h3 class="mt-4 sm:mt-5 text-xl sm:text-3xl font-bold text-white">Enterprise Monitoring System</h3>
-
-                <p class="mt-3 sm:mt-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  Platform monitoring real-time untuk mengelola data operasional, laporan dan analitik bisnis secara instan.
-                </p>
-              </div>
-
-              <div class="mt-5">
-                <router-link
-                  to="/portfolio"
-                  class="font-semibold text-xs sm:text-sm text-orange-500 hover:text-pink-500 duration-300 inline-block cursor-pointer"
-                >
-                  View Case Study →
-                </router-link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Standard Cards (Scrolls on Mobile, flows into normal columns on Desktop) -->
+      <!-- Portfolio Grid: Horizontal Scroll on Mobile, 2 Columns on Desktop -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 scrollbar-none lg:grid lg:grid-cols-2 lg:gap-8 px-4 -mx-4 lg:px-0 lg:mx-0 pl-6 pr-6">
         <div
           v-for="item in portfolios"
           :key="item.title"
-          class="min-w-[280px] lg:min-w-0 snap-center group glass overflow-hidden rounded-[24px] sm:rounded-[32px] hover:-translate-y-3 duration-500 border border-white/10 flex flex-col justify-between"
+          class="min-w-[85vw] lg:min-w-0 snap-center group glass overflow-hidden rounded-[24px] sm:rounded-[36px] hover:-translate-y-3 duration-500 border border-white/10 flex flex-col justify-between"
         >
-          <div class="overflow-hidden h-40 sm:h-48">
+          <div class="overflow-hidden h-48 sm:h-72">
             <img
               :src="item.image"
+              :alt="item.title"
               class="h-full w-full object-cover group-hover:scale-110 duration-700"
             />
           </div>
 
-          <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
             <div>
               <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-500/20 font-bold">
                 {{ item.category }}
               </span>
 
-              <h4 class="mt-3 text-lg sm:text-xl font-bold text-white">
+              <h4 class="mt-4 text-xl sm:text-2xl font-bold text-white group-hover:text-orange-400 duration-300 leading-snug">
                 {{ item.title }}
               </h4>
 
-              <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+              <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {{ item.desc }}
               </p>
             </div>
 
-            <div class="mt-4">
+            <div class="mt-6">
               <router-link
                 to="/portfolio"
                 class="font-semibold text-xs sm:text-sm text-orange-500 hover:text-pink-500 duration-300 inline-block cursor-pointer"
@@ -128,28 +92,16 @@
 <script setup>
 const portfolios = [
   {
-    title: 'Corporate Website',
-    category: 'Company Profile',
-    desc: 'Website profesional untuk meningkatkan branding perusahaan.',
-    image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200',
+    title: 'Eka Akurasi Envitama',
+    category: 'Website & Mobile',
+    desc: 'Sistem Laporan Pengujian Laboratorium Terintegrasi.',
+    image: './public/assets/ekalab.png',
   },
   {
-    title: 'ERP System',
-    category: 'Enterprise',
-    desc: 'Sistem ERP untuk mengelola operasional perusahaan.',
-    image: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1200',
-  },
-  {
-    title: 'Mobile Application',
-    category: 'Android & iOS',
-    desc: 'Aplikasi mobile dengan performa tinggi dan UI modern.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200',
-  },
-  {
-    title: 'CRM Dashboard',
-    category: 'Business System',
-    desc: 'Dashboard CRM untuk monitoring sales dan customer.',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200',
-  },
+    title: 'Bank BPRS BTB',
+    category: 'Website',
+    desc: 'Website resmi Bank BPRS BTB yang menyediakan informasi layanan perbankan, produk pembiayaan, profil perusahaan, berita terkini, serta kemudahan akses informasi bagi nasabah dan calon nasabah.',
+    image: './public/assets/fos.png',
+  }
 ]
 </script>

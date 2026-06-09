@@ -11,10 +11,11 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-20">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center">
-        
         <!-- IMAGE COLUMN (Order 2 on mobile, 1 on desktop) -->
         <div class="relative order-2 lg:order-1 mt-8 lg:mt-0 min-w-0 w-full">
-          <div class="glass p-2 sm:p-3 rounded-[24px] sm:rounded-[36px] overflow-hidden border border-white/10">
+          <div
+            class="glass p-2 sm:p-3 rounded-[24px] sm:rounded-[36px] overflow-hidden border border-white/10"
+          >
             <img
               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200"
               class="rounded-[18px] sm:rounded-[28px] w-full h-[260px] sm:h-[400px] lg:h-[550px] object-cover"
@@ -40,7 +41,9 @@
 
         <!-- TEXT COLUMN (Order 1 on mobile, 2 on desktop) -->
         <div class="order-1 lg:order-2 min-w-0 w-full">
-          <span class="glass px-4 py-1.5 rounded-full text-xs sm:text-sm text-orange-200 border border-orange-400/20">
+          <span
+            class="glass px-4 py-1.5 rounded-full text-xs sm:text-sm text-orange-200 border border-orange-400/20"
+          >
             ABOUT IDEVELOP
           </span>
 
@@ -49,11 +52,13 @@
           </h2>
 
           <p class="mt-4 text-sm sm:text-lg text-slate-300 leading-relaxed">
-            iDevelop membantu perusahaan, startup dan UMKM membangun website, aplikasi dan sistem digital yang modern, cepat, aman dan scalable.
+            iDevelop membantu perusahaan, startup dan UMKM membangun website, aplikasi dan sistem
+            digital yang modern, cepat, aman dan scalable.
           </p>
 
           <p class="mt-3 text-xs sm:text-base text-slate-400 leading-relaxed">
-            Fokus kami bukan hanya membuat software, tetapi menciptakan solusi yang membantu bisnis meningkatkan efisiensi, kredibilitas dan pertumbuhan.
+            Fokus kami bukan hanya membuat software, tetapi menciptakan solusi yang membantu bisnis
+            meningkatkan efisiensi, kredibilitas dan pertumbuhan.
           </p>
 
           <div class="mt-5">
@@ -66,7 +71,9 @@
           </div>
 
           <!-- Feature Cards -->
-          <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none sm:grid sm:grid-cols-2 sm:gap-4 mt-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div
+            class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none sm:grid sm:grid-cols-2 sm:gap-4 mt-8 -mx-4 px-4 sm:mx-0 sm:px-0"
+          >
             <div
               class="min-w-[220px] sm:min-w-0 snap-center glass p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-orange-500/10 hover:border-orange-500/30 duration-300"
             >
@@ -76,7 +83,9 @@
                 🚀
               </div>
               <h4 class="font-bold mt-3 text-sm sm:text-base text-white">Fast Development</h4>
-              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">Pengerjaan cepat dengan teknologi modern.</p>
+              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">
+                Pengerjaan cepat dengan teknologi modern.
+              </p>
             </div>
 
             <div
@@ -88,7 +97,9 @@
                 ⚙️
               </div>
               <h4 class="font-bold mt-3 text-sm sm:text-base text-white">Custom Solution</h4>
-              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">Sistem sesuai proses bisnis perusahaan.</p>
+              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">
+                Sistem sesuai proses bisnis perusahaan.
+              </p>
             </div>
 
             <div
@@ -100,7 +111,9 @@
                 🎨
               </div>
               <h4 class="font-bold mt-3 text-sm sm:text-base text-white">Modern UI/UX</h4>
-              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">Desain premium meningkatkan konversi.</p>
+              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">
+                Desain premium meningkatkan konversi.
+              </p>
             </div>
 
             <div
@@ -112,7 +125,9 @@
                 🛠️
               </div>
               <h4 class="font-bold mt-3 text-sm sm:text-base text-white">Full Support</h4>
-              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">Maintenance dan support berkelanjutan.</p>
+              <p class="text-slate-400 mt-1.5 text-xs sm:text-sm">
+                Maintenance dan support berkelanjutan.
+              </p>
             </div>
           </div>
 
@@ -134,11 +149,9 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 </template>
 
-<script setup>
-</script>
+<script setup></script>

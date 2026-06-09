@@ -46,37 +46,36 @@
         <span
           class="glass px-5 py-2 rounded-full inline-flex items-center gap-2 text-orange-200 border border-orange-400/20"
         >
-          🚀 Trusted by 100+ Businesses
+          {{ $t('hero.badge') }}
         </span>
 
         <h1
           class="mt-6 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight max-w-2xl text-white"
         >
-          Website & Sistem Digital
+          {{ $t('hero.title') }}
 
-          <span class="gradient-text"> untuk Bisnis Modern </span>
+          <span class="gradient-text"> {{ $t('hero.titleHighlight') }} </span>
         </h1>
 
         <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-          Membantu perusahaan meningkatkan kredibilitas, efisiensi operasional, dan penjualan
-          melalui website, aplikasi dan sistem digital yang dibangun sesuai kebutuhan bisnis.
+          {{ $t('hero.subtitle') }}
         </p>
 
         <!-- CTA -->
 
         <div class="mt-10 flex flex-wrap gap-4">
-          <router-link
-            to="/contact"
-            class="px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 hover:scale-105 duration-300 glow inline-block text-center"
+          <button
+            @click="triggerConsultation"
+            class="px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 hover:scale-105 duration-300 glow inline-block text-center cursor-pointer font-bold"
           >
-            Konsultasi Gratis
-          </router-link>
+            {{ $t('hero.ctaConsultation') }}
+          </button>
 
           <router-link
             to="/portfolio"
-            class="glass px-8 py-4 rounded-2xl text-slate-200 hover:bg-white/10 hover:border-orange-400/20 duration-300 inline-block text-center"
+            class="glass px-8 py-4 rounded-2xl text-slate-200 hover:bg-white/10 hover:border-orange-400/20 duration-300 inline-block text-center cursor-pointer"
           >
-            Lihat Portfolio
+            {{ $t('hero.ctaPortfolio') }}
           </router-link>
         </div>
 
@@ -86,19 +85,19 @@
           <div>
             <h3 class="text-3xl font-bold">100+</h3>
 
-            <p class="text-slate-500">Project</p>
+            <p class="text-slate-500">{{ $t('hero.projects') }}</p>
           </div>
 
           <div>
             <h3 class="text-3xl font-bold">50+</h3>
 
-            <p class="text-slate-500">Clients</p>
+            <p class="text-slate-500">{{ $t('hero.clients') }}</p>
           </div>
 
           <div>
             <h3 class="text-3xl font-bold">4.9★</h3>
 
-            <p class="text-slate-500">Rating</p>
+            <p class="text-slate-500">{{ $t('hero.rating') }}</p>
           </div>
         </div>
       </div>
@@ -122,7 +121,7 @@
 
           <h4 class="font-bold mt-1 sm:mt-2 text-white text-sm sm:text-base">+45%</h4>
 
-          <p class="text-[10px] sm:text-sm text-slate-400">Revenue Growth</p>
+          <p class="text-[10px] sm:text-sm text-slate-400">{{ $t('hero.growth') }}</p>
         </div>
 
         <!-- Projects -->
@@ -132,15 +131,21 @@
 
           <h4 class="font-bold mt-1 sm:mt-2 text-white text-sm sm:text-base">100+</h4>
 
-          <p class="text-[10px] sm:text-sm text-slate-400">Project Done</p>
+          <p class="text-[10px] sm:text-sm text-slate-400">{{ $t('hero.projectDone') }}</p>
         </div>
 
         <!-- Client -->
 
         <div class="absolute right-4 sm:right-10 top-[-15px] sm:top-[-20px] glass px-3 py-1.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl floating border border-white/10 scale-75 sm:scale-100 origin-right text-[10px] sm:text-sm text-white">
-          ⭐ 4.9 Rating
+          ⭐ 4.9 {{ $t('hero.rating') }}
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+const triggerConsultation = () => {
+  window.dispatchEvent(new CustomEvent('open-consultation'))
+}
+</script>

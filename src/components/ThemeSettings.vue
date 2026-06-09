@@ -9,21 +9,19 @@
         <div class="flex items-start justify-between gap-3">
           <div class="flex items-center gap-2">
             <span class="text-lg">🎨</span>
-            <span class="font-bold text-[10px] uppercase tracking-wider text-slate-400">Tips Tampilan</span>
+            <span class="font-bold text-[10px] uppercase tracking-wider text-slate-400">{{ $t('themeSettings.tipsTitle') }}</span>
           </div>
           <button @click="dismissWelcome" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-white transition">✕</button>
         </div>
         
-        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-          Halo! Jika tampilan web ini dirasa <strong>terlalu terang</strong> atau Anda kurang menyukai warnanya, Anda dapat mengubah tema ke <strong>Mode Gelap (Dark Mode)</strong> atau memilih <strong>kombinasi gradien warna</strong> kesukaan Anda melalui tombol roda gigi di bawah ini.
-        </p>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" v-html="$t('themeSettings.tipsText')"></p>
 
         <div class="flex justify-end mt-1">
           <button 
             @click="dismissWelcome" 
             class="px-4 py-1.5 rounded-lg text-[10px] font-bold bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white shadow-md hover:scale-105 active:scale-95 duration-200 cursor-pointer"
           >
-            Siap, Paham! 👍
+            {{ $t('themeSettings.tipsBtn') }}
           </button>
         </div>
       </div>
@@ -45,13 +43,33 @@
         class="mt-3 w-80 glass rounded-[28px] p-6 shadow-2xl border border-slate-200/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl text-slate-800 dark:text-slate-100 flex flex-col gap-5"
       >
         <div class="flex items-center justify-between pb-3 border-b border-slate-200/40">
-          <h4 class="font-black text-lg text-slate-900">Customizer</h4>
-          <button @click="isOpen = false" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-white transition">✕ Close</button>
+          <h4 class="font-black text-lg text-slate-900 dark:text-white">{{ $t('themeSettings.customizer') }}</h4>
+          <button @click="isOpen = false" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-white transition">{{ $t('themeSettings.close') }}</button>
+        </div>
+
+        <!-- Language Switcher -->
+        <div>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">{{ $t('themeSettings.language') }}</span>
+          <div class="grid grid-cols-2 gap-3 mt-2">
+            <button
+              v-for="lang in supportedLocales"
+              :key="lang.code"
+              @click="setLocale(lang.code)"
+              :class="[
+                'flex items-center justify-center gap-2 py-2 rounded-xl text-[11px] font-bold border transition cursor-pointer',
+                locale === lang.code
+                  ? 'bg-slate-900 text-white border-slate-900 dark:bg-white dark:text-slate-900 dark:border-white'
+                  : 'bg-white/40 text-slate-600 dark:text-slate-300 dark:border-slate-700 border-slate-200 hover:bg-white/80 dark:hover:bg-slate-800/40'
+              ]"
+            >
+              <span>{{ lang.flag }}</span> {{ lang.name }}
+            </button>
+          </div>
         </div>
 
         <!-- Mode Toggle -->
         <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Theme Mode</span>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">{{ $t('themeSettings.themeMode') }}</span>
           <div class="grid grid-cols-2 gap-3 mt-2">
             <button
               @click="setMode('light')"
@@ -62,7 +80,7 @@
                   : 'bg-white/40 text-slate-600 border-slate-200 hover:bg-white/80'
               ]"
             >
-              <span>☀️</span> Light
+              <span>☀️</span> {{ $t('themeSettings.light') }}
             </button>
             <button
               @click="setMode('dark')"
@@ -73,14 +91,14 @@
                   : 'bg-white/40 text-slate-600 dark:text-slate-300 dark:border-slate-700 border-slate-200 hover:bg-white/80 dark:hover:bg-slate-800/40'
               ]"
             >
-              <span>🌙</span> Dark
+              <span>🌙</span> {{ $t('themeSettings.dark') }}
             </button>
           </div>
         </div>
 
         <!-- Gradient Theme -->
         <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Gradient Accents</span>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">{{ $t('themeSettings.gradientAccents') }}</span>
           <div class="grid grid-cols-2 gap-2 mt-2">
             <button
               v-for="theme in gradients"
@@ -104,7 +122,7 @@
         </div>
 
         <div class="text-[10px] text-slate-400 text-center pt-2 border-t border-slate-200/40">
-          iDevelop Customizer • Saved Automatically 🚀
+          {{ $t('themeSettings.autoSaved') }}
         </div>
       </div>
     </transition>
@@ -113,6 +131,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useI18n } from '../plugins/i18n'
+
+const { locale, setLocale, supportedLocales } = useI18n()
 
 const isOpen = ref(false)
 const showWelcome = ref(false)

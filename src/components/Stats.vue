@@ -23,7 +23,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       <!-- Heading -->
       <div class="text-center mb-12 md:mb-20">
-        <span class="glass px-4 py-1.5 rounded-full text-xs sm:text-sm text-orange-600 border border-orange-400/20"> OUR ACHIEVEMENT </span>
+        <span
+          class="glass px-4 py-1.5 rounded-full text-xs sm:text-sm text-orange-600 border border-orange-400/20"
+        >
+          OUR ACHIEVEMENT
+        </span>
 
         <h2 class="mt-4 text-3xl sm:text-5xl font-black text-white leading-tight">
           Angka yang Membuktikan <br />
@@ -31,7 +35,8 @@
         </h2>
 
         <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Kami telah membantu berbagai perusahaan, UMKM dan startup membangun solusi digital yang meningkatkan efisiensi serta pertumbuhan bisnis.
+          Kami telah membantu berbagai perusahaan, UMKM dan startup membangun solusi digital yang
+          meningkatkan efisiensi serta pertumbuhan bisnis.
         </p>
       </div>
 
@@ -72,17 +77,17 @@
 const stats = [
   {
     icon: '🚀',
-    value: '150+',
+    value: '10+',
     title: 'Project Selesai',
   },
   {
     icon: '🏢',
-    value: '80+',
+    value: '20+',
     title: 'Client Aktif',
   },
   {
     icon: '⭐',
-    value: '12+',
+    value: '5+',
     title: 'Tahun Pengalaman',
   },
   {
