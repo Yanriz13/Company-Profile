@@ -1,0 +1,105 @@
+<template>
+  <nav class="fixed top-5 left-1/2 -z-0 transform -translate-x-1/2 w-[95%] max-w-7xl z-50">
+    <div
+      :class="[
+        'glass rounded-3xl flex items-center justify-between duration-300 border border-white/10',
+        scrolled ? 'px-5 py-3 backdrop-blur-3xl bg-slate-950/60 shadow-lg shadow-black/20' : 'px-6 py-4 bg-slate-950/20',
+      ]"
+    >
+      <!-- Logo -->
+      <router-link to="/" class="flex items-center gap-3 group">
+        <div
+          class="w-11 h-11 rounded-2xl bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-orange-500/20 group-hover:rotate-12 duration-300"
+        >
+          iD
+        </div>
+
+        <div>
+          <h1 class="text-xl font-black text-white leading-tight">
+            i<span class="gradient-text">Develop</span>
+          </h1>
+          <p class="text-[9px] tracking-wider text-slate-400 font-bold uppercase">Digital Agency</p>
+        </div>
+      </router-link>
+
+      <!-- Menu (Desktop) -->
+      <div class="hidden lg:flex items-center gap-8">
+        <router-link to="/" class="nav-link"> Home </router-link>
+        <router-link to="/about" class="nav-link"> About </router-link>
+        <router-link to="/services" class="nav-link"> Services </router-link>
+        <router-link to="/portfolio" class="nav-link"> Portfolio </router-link>
+        <router-link to="/contact" class="nav-link"> Contact </router-link>
+      </div>
+
+      <!-- CTA (Desktop) -->
+      <div class="hidden lg:block">
+        <router-link
+          to="/contact"
+          class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 px-6 py-2.5 rounded-2xl font-semibold hover:scale-105 duration-300 inline-block text-white text-sm shadow-lg shadow-orange-500/15 glow"
+        >
+          Konsultasi Gratis
+        </router-link>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button @click="open = !open" class="lg:hidden text-2xl text-white focus:outline-none p-1">
+        <span v-if="!open">☰</span>
+        <span v-else>✕</span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <transition name="fade">
+      <div v-if="open" class="lg:hidden mt-3 glass rounded-[28px] p-6 border border-white/10 shadow-xl bg-slate-950/90 backdrop-blur-2xl">
+        <div class="flex flex-col gap-4">
+          <router-link to="/" class="nav-link py-2 border-b border-white/5" @click="open = false"> Home </router-link>
+          <router-link to="/about" class="nav-link py-2 border-b border-white/5" @click="open = false"> About </router-link>
+          <router-link to="/services" class="nav-link py-2 border-b border-white/5" @click="open = false"> Services </router-link>
+          <router-link to="/portfolio" class="nav-link py-2 border-b border-white/5" @click="open = false"> Portfolio </router-link>
+          <router-link to="/contact" class="nav-link py-2" @click="open = false"> Contact </router-link>
+          
+          <router-link 
+            to="/contact" 
+            class="mt-4 px-6 py-3 rounded-2xl font-semibold bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-center text-white text-sm shadow-md shadow-orange-500/10"
+            @click="open = false"
+          >
+            Konsultasi Gratis 🚀
+          </router-link>
+        </div>
+      </div>
+    </transition>
+  </nav>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
+
+const scrolled = ref(false)
+const open = ref(false)
+
+const handleScroll = () => {
+  scrolled.value = window.scrollY > 40
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+</style>
