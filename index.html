@@ -9,6 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Instant Flicker-Free Theme Initializer -->
+    <script>
+      (function() {
+        const savedMode = localStorage.getItem('idevelop-theme-mode');
+        const root = document.documentElement;
+        if (savedMode === 'dark' || (!savedMode && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          root.classList.add('dark-theme');
+        } else {
+          root.classList.remove('dark-theme');
+        }
+        
+        const savedGradient = localStorage.getItem('idevelop-gradient-theme');
+        if (savedGradient) {
+          try {
+            const theme = JSON.parse(savedGradient);
+            if (theme && theme.start) {
+              root.style.setProperty('--gradient-start', theme.start);
+              root.style.setProperty('--gradient-middle', theme.middle);
+              root.style.setProperty('--gradient-end', theme.end);
+              root.style.setProperty('--gradient-glow-color', theme.glow);
+            }
+          } catch (e) {}
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

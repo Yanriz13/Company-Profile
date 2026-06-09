@@ -38,11 +38,11 @@
     <!-- Content -->
 
     <div
-      class="max-w-7xl mx-auto px-6 pt-10 lg:pt-0 grid lg:grid-cols-2 gap-16 xl:gap-24 items-center relative z-10"
+      class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 lg:pt-0 grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center relative z-10"
     >
       <!-- LEFT -->
 
-      <div>
+      <div class="min-w-0 w-full">
         <span
           class="glass px-5 py-2 rounded-full inline-flex items-center gap-2 text-orange-200 border border-orange-400/20"
         >
@@ -105,39 +105,39 @@
 
       <!-- RIGHT -->
 
-      <div class="relative">
+      <div class="relative mt-8 lg:mt-0 min-w-0 w-full">
         <!-- Main Dashboard -->
 
-        <div class="glass p-3 rounded-[32px] floating shadow-2xl max-w-[650px] mx-auto">
+        <div class="glass p-2 sm:p-3 rounded-[24px] sm:rounded-[32px] floating shadow-2xl max-w-[650px] mx-auto border border-white/10">
           <img
             src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200"
-            class="rounded-[24px] w-full object-cover"
+            class="rounded-[18px] sm:rounded-[24px] w-full object-cover"
           />
         </div>
 
         <!-- Analytics -->
 
-        <div class="absolute left-0 lg:-left-10 top-12 glass p-5 rounded-3xl floating">
-          <div class="text-4xl">📈</div>
+        <div class="absolute -left-3 sm:-left-10 top-12 glass p-3 sm:p-5 rounded-2xl sm:rounded-3xl floating border border-white/10 scale-75 sm:scale-100 origin-left">
+          <div class="text-2xl sm:text-4xl">📈</div>
 
-          <h4 class="font-bold mt-2">+45%</h4>
+          <h4 class="font-bold mt-1 sm:mt-2 text-white text-sm sm:text-base">+45%</h4>
 
-          <p class="text-sm text-slate-400">Revenue Growth</p>
+          <p class="text-[10px] sm:text-sm text-slate-400">Revenue Growth</p>
         </div>
 
         <!-- Projects -->
 
-        <div class="absolute right-0 lg:-right-8 bottom-10 glass p-5 rounded-3xl floating">
-          <div class="text-4xl">🚀</div>
+        <div class="absolute -right-3 sm:-right-8 bottom-10 glass p-3 sm:p-5 rounded-2xl sm:rounded-3xl floating border border-white/10 scale-75 sm:scale-100 origin-right">
+          <div class="text-2xl sm:text-4xl">🚀</div>
 
-          <h4 class="font-bold mt-2">100+</h4>
+          <h4 class="font-bold mt-1 sm:mt-2 text-white text-sm sm:text-base">100+</h4>
 
-          <p class="text-sm text-slate-400">Project Done</p>
+          <p class="text-[10px] sm:text-sm text-slate-400">Project Done</p>
         </div>
 
         <!-- Client -->
 
-        <div class="absolute right-10 top-[-20px] glass px-5 py-3 rounded-2xl floating">
+        <div class="absolute right-4 sm:right-10 top-[-15px] sm:top-[-20px] glass px-3 py-1.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl floating border border-white/10 scale-75 sm:scale-100 origin-right text-[10px] sm:text-sm text-white">
           ⭐ 4.9 Rating
         </div>
       </div>

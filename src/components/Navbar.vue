@@ -2,8 +2,8 @@
   <nav class="fixed top-5 left-1/2 -z-0 transform -translate-x-1/2 w-[95%] max-w-7xl z-50">
     <div
       :class="[
-        'glass rounded-3xl flex items-center justify-between duration-300 border border-white/10',
-        scrolled ? 'px-5 py-3 backdrop-blur-3xl bg-slate-950/60 shadow-lg shadow-black/20' : 'px-6 py-4 bg-slate-950/20',
+        'glass rounded-3xl flex items-center justify-between duration-300 border',
+        scrolled ? 'px-5 py-3 backdrop-blur-3xl bg-white/70 shadow-lg shadow-slate-200/40 border-slate-200/50' : 'px-6 py-4 bg-white/30 border-white/40',
       ]"
     >
       <!-- Logo -->
@@ -15,10 +15,10 @@
         </div>
 
         <div>
-          <h1 class="text-xl font-black text-white leading-tight">
+          <h1 class="text-xl font-black text-slate-900 leading-tight">
             i<span class="gradient-text">Develop</span>
           </h1>
-          <p class="text-[9px] tracking-wider text-slate-400 font-bold uppercase">Digital Agency</p>
+          <p class="text-[9px] tracking-wider text-slate-500 font-bold uppercase">Digital Agency</p>
         </div>
       </router-link>
 
@@ -42,7 +42,7 @@
       </div>
 
       <!-- Mobile Menu Button -->
-      <button @click="open = !open" class="lg:hidden text-2xl text-white focus:outline-none p-1">
+      <button @click="open = !open" class="lg:hidden text-2xl text-slate-700 focus:outline-none p-1">
         <span v-if="!open">☰</span>
         <span v-else>✕</span>
       </button>
@@ -50,12 +50,12 @@
 
     <!-- Mobile Menu Drawer -->
     <transition name="fade">
-      <div v-if="open" class="lg:hidden mt-3 glass rounded-[28px] p-6 border border-white/10 shadow-xl bg-slate-950/90 backdrop-blur-2xl">
+      <div v-if="open" class="lg:hidden mt-3 glass rounded-[28px] p-6 border border-slate-200/50 shadow-xl bg-white/95 backdrop-blur-2xl">
         <div class="flex flex-col gap-4">
-          <router-link to="/" class="nav-link py-2 border-b border-white/5" @click="open = false"> Home </router-link>
-          <router-link to="/about" class="nav-link py-2 border-b border-white/5" @click="open = false"> About </router-link>
-          <router-link to="/services" class="nav-link py-2 border-b border-white/5" @click="open = false"> Services </router-link>
-          <router-link to="/portfolio" class="nav-link py-2 border-b border-white/5" @click="open = false"> Portfolio </router-link>
+          <router-link to="/" class="nav-link py-2 border-b border-slate-100" @click="open = false"> Home </router-link>
+          <router-link to="/about" class="nav-link py-2 border-b border-slate-100" @click="open = false"> About </router-link>
+          <router-link to="/services" class="nav-link py-2 border-b border-slate-100" @click="open = false"> Services </router-link>
+          <router-link to="/portfolio" class="nav-link py-2 border-b border-slate-100" @click="open = false"> Portfolio </router-link>
           <router-link to="/contact" class="nav-link py-2" @click="open = false"> Contact </router-link>
           
           <router-link 

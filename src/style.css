@@ -4,50 +4,93 @@ html{
   scroll-behavior:smooth;
 }
 
+/* ==================================
+   THEME STYLING SYSTEM VARIABLES
+   ================================== */
+:root {
+  /* Light Theme Color Properties */
+  --bg-gradient: radial-gradient(circle at top, #f8fafc 0%, #f1f5f9 40%, #e2e8f0 100%);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --grid-color: rgba(15, 23, 42, 0.03);
+  --orbit-color: rgba(15, 23, 42, 0.04);
+  --badge-bg: rgba(255, 122, 24, 0.1);
+  --badge-border: rgba(255, 122, 24, 0.18);
+  --border-subtle: rgba(15, 23, 42, 0.06);
+
+  /* Gradient Variables (Default Sunset Blaze) */
+  --gradient-start: #ff7a18;
+  --gradient-middle: #ff4d6d;
+  --gradient-end: #a855f7;
+  --gradient-glow-color: rgba(255, 122, 24, 0.25);
+}
+
+.dark-theme {
+  /* Dark Theme Color Properties */
+  --bg-gradient: radial-gradient(circle at top, #0b0f19 0%, #030712 60%, #02040a 100%);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.3);
+  --grid-color: rgba(255, 255, 255, 0.025);
+  --orbit-color: rgba(255, 255, 255, 0.025);
+  --badge-bg: rgba(255, 122, 24, 0.15);
+  --badge-border: rgba(255, 122, 24, 0.25);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+}
+
 body{
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background:
-  radial-gradient(
-    circle at top,
-    #1e1b4b 0%,
-    #0f172a 40%,
-    #020617 100%
-  );
-
-  color:white;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
   overflow-x:hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* =========================
-   GLASS
+   GLASS (Premium Dynamic Theme)
 ========================= */
 
 .glass{
-  background:rgba(255,255,255,.05);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-
-  border:1px solid rgba(255,255,255,.08);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
+  background: var(--glass-bg);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+  border:1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* =========================
-   GRADIENT TEXT
+   GRADIENT TEXT & BACKGROUNDS
 ========================= */
 
 .gradient-text{
   background:
   linear-gradient(
     90deg,
-    #ff7a18,
-    #ff4d6d,
-    #a855f7
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-end)
   );
-
   -webkit-background-clip:text;
   color:transparent;
+  transition: all 0.4s ease;
+}
+
+.bg-gradient-to-r {
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end)) !important;
+  transition: all 0.4s ease;
+}
+
+.bg-gradient-to-br {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end)) !important;
+  transition: all 0.4s ease;
 }
 
 /* =========================
@@ -56,8 +99,9 @@ body{
 
 .glow{
   box-shadow:
-    0 0 40px rgba(255,122,24,.35),
-    0 0 80px rgba(255,77,109,.20);
+    0 4px 20px var(--gradient-glow-color),
+    0 4px 40px rgba(255,77,109,.15);
+  transition: all 0.4s ease;
 }
 
 /* =========================
@@ -67,18 +111,18 @@ body{
 .hero-grid{
   background-image:
     linear-gradient(
-      rgba(255,255,255,.025) 1px,
+      var(--grid-color) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,255,255,.025) 1px,
+      var(--grid-color) 1px,
       transparent 1px
     );
 
   background-size:60px 60px;
-
   animation:gridMove 15s linear infinite;
+  transition: background-image 0.4s ease;
 }
 
 @keyframes gridMove{
@@ -92,61 +136,49 @@ body{
 }
 
 /* =========================
-   MESH COLORS
+   MESH COLORS (Light/Dark Theme Vibrant overlays)
 ========================= */
 
 .mesh{
   position:absolute;
   border-radius:9999px;
   filter:blur(140px);
-  opacity:.35;
+  opacity:.18;
 }
 
 .mesh-1{
   width:500px;
   height:500px;
-
-  background:#ff7a18;
-
+  background: var(--gradient-start);
   top:-150px;
   left:-100px;
-
   animation:float1 20s ease infinite;
 }
 
 .mesh-2{
   width:600px;
   height:600px;
-
-  background:#ff4d6d;
-
+  background: var(--gradient-middle);
   right:-150px;
   top:0;
-
   animation:float2 25s ease infinite;
 }
 
 .mesh-3{
   width:450px;
   height:450px;
-
-  background:#f59e0b;
-
+  background: var(--gradient-end);
   left:35%;
   bottom:-150px;
-
   animation:float3 18s ease infinite;
 }
 
 .mesh-4{
   width:350px;
   height:350px;
-
-  background:#a855f7;
-
+  background: var(--gradient-start);
   right:20%;
   bottom:5%;
-
   animation:float4 16s ease infinite;
 }
 
@@ -199,21 +231,16 @@ body{
 }
 
 /* =========================
-   PARTICLES
+   PARTICLES (Orange/Pink color for light mode contrast)
 ========================= */
 
 .particles span{
   position:absolute;
-
   width:5px;
   height:5px;
-
   border-radius:9999px;
-
-  background:white;
-
-  opacity:.25;
-
+  background: var(--gradient-start);
+  opacity:.30;
   animation:particle 15s linear infinite;
 }
 
@@ -268,7 +295,7 @@ body{
   }
 
   50%{
-    opacity:.35;
+    opacity:.40;
   }
 
   100%{
@@ -288,11 +315,8 @@ body{
 .noise-overlay{
   position:absolute;
   inset:0;
-
-  opacity:.04;
-
+  opacity:.03;
   pointer-events:none;
-
   background-image:
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
@@ -303,28 +327,21 @@ body{
 
 .planet{
   position:absolute;
-
   width:550px;
   height:550px;
-
   right:-120px;
   top:120px;
-
   border-radius:50%;
-
   background:
   radial-gradient(
     circle at 30% 30%,
-    #ffd166,
-    #ff7a18 40%,
-    #ff4d6d 70%,
+    var(--gradient-start),
+    var(--gradient-middle) 40%,
+    var(--gradient-end) 70%,
     transparent
   );
-
-  opacity:.20;
-
+  opacity:.12;
   filter:blur(10px);
-
   animation:planetFloat 15s ease-in-out infinite;
 }
 
@@ -350,30 +367,24 @@ body{
 
 .orbit{
   position:absolute;
-
-  border:
-  1px solid rgba(255,255,255,.05);
-
+  border: 1px solid var(--orbit-color);
   border-radius:9999px;
+  transition: border-color 0.4s ease;
 }
 
 .orbit-1{
   width:650px;
   height:650px;
-
   right:-170px;
   top:70px;
-
   animation:spin 35s linear infinite;
 }
 
 .orbit-2{
   width:800px;
   height:800px;
-
   right:-250px;
   top:-10px;
-
   animation:spinReverse 50s linear infinite;
 }
 
@@ -407,23 +418,19 @@ body{
 
 .light-beam{
   position:absolute;
-
   width:600px;
   height:600px;
-
   filter:blur(80px);
-
   z-index:0;
 }
 
 .light-1{
   left:-200px;
   top:-150px;
-
   background:
   radial-gradient(
     circle,
-    rgba(255,122,24,.20),
+    rgba(255,122,24,.10),
     transparent 70%
   );
 }
@@ -431,11 +438,10 @@ body{
 .light-2{
   right:-200px;
   bottom:-150px;
-
   background:
   radial-gradient(
     circle,
-    rgba(255,77,109,.20),
+    rgba(255,77,109,.10),
     transparent 70%
   );
 }
@@ -446,52 +452,41 @@ body{
 
 .about-planet{
   position:absolute;
-
   width:400px;
   height:400px;
-
   left:-120px;
   top:100px;
-
   border-radius:9999px;
-
   background:
   radial-gradient(
     circle,
-    rgba(255,122,24,.18),
-    rgba(255,77,109,.15),
+    rgba(255,122,24,.12),
+    rgba(255,77,109,.10),
     transparent
   );
-
   filter:blur(30px);
 }
 
 .about-orbit{
   position:absolute;
-
-  border:
-  1px solid rgba(255,255,255,.04);
-
+  border: 1px solid var(--orbit-color);
   border-radius:9999px;
+  transition: border-color 0.4s ease;
 }
 
 .orbit-a{
   width:500px;
   height:500px;
-
   left:-180px;
   top:50px;
-
   animation:spin 40s linear infinite;
 }
 
 .orbit-b{
   width:650px;
   height:650px;
-
   left:-260px;
   top:-20px;
-
   animation:spinReverse 55s linear infinite;
 }
 
@@ -501,32 +496,28 @@ body{
 
 .nav-link{
   position:relative;
-  color:#e2e8f0;
+  color: var(--text-secondary) !important;
+  font-weight: 600;
   transition:.3s;
 }
 
 .nav-link:hover{
-  color:white;
+  color: var(--text-primary) !important;
 }
 
 .nav-link::after{
   content:'';
-
   position:absolute;
-
   left:0;
   bottom:-6px;
-
   width:0;
   height:2px;
-
   background:
   linear-gradient(
     90deg,
-    #ff7a18,
-    #ff4d6d
+    var(--gradient-start),
+    var(--gradient-middle)
   );
-
   transition:.3s;
 }
 
@@ -561,11 +552,122 @@ body{
   }
 }
 
-@keyframes spinReverse{
-  from{
-    transform:rotate(360deg);
-  }
-  to{
-    transform:rotate(0deg);
-  }
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==================================
+   GLOBAL LIGHT MODE CONTRAST OVERRIDES
+   ================================== */
+
+/* Headers & text-white overrides */
+h1:not(.gradient-text), 
+h2:not(.gradient-text), 
+h3:not(.gradient-text), 
+h4:not(.gradient-text), 
+h5:not(.gradient-text), 
+h6:not(.gradient-text),
+.text-white:not(.bg-gradient-to-r):not(.bg-gradient-to-br):not(.text-orange-300):not(.text-pink-300):not(.text-purple-300):not(.text-green-400):not(.text-green-300) {
+  color: var(--text-primary) !important;
+}
+
+/* Body & Slate text overrides for soft readable color */
+p,
+.text-slate-300:not(.bg-gradient-to-r):not(.bg-gradient-to-br),
+.text-slate-400:not(.bg-gradient-to-r):not(.bg-gradient-to-br) {
+  color: var(--text-secondary) !important;
+}
+
+.text-slate-200 {
+  color: var(--text-secondary) !important;
+}
+
+.text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+.text-orange-200 {
+  color: var(--gradient-start) !important;
+}
+
+.text-orange-600 {
+  color: var(--gradient-start) !important;
+}
+
+.text-orange-500 {
+  color: var(--gradient-start) !important;
+}
+
+.text-orange-400 {
+  color: var(--gradient-middle) !important;
+}
+
+/* Keep tags and badges styled beautifully with theme adjustments */
+.glass span.text-orange-300,
+.glass span.text-pink-300,
+.glass span.text-purple-300 {
+  color: inherit !important;
+}
+
+/* Keep white text white on buttons and special container backgrounds */
+a.bg-gradient-to-r,
+button.bg-gradient-to-r,
+.bg-gradient-to-r .text-white,
+.bg-gradient-to-br .text-white,
+.bg-slate-900\/80 .text-orange-300, 
+.bg-orange-500\/10 .text-orange-300,
+.bg-pink-500\/10 .text-pink-300,
+.bg-purple-500\/10 .text-purple-300,
+.bg-orange-500\/10 .text-white,
+.bg-pink-500\/10 .text-white,
+.bg-purple-500\/10 .text-white,
+.bg-amber-500\/10 .text-white,
+.bg-orange-500 .text-white,
+.bg-pink-500 .text-white,
+.bg-purple-600 .text-white,
+.bg-slate-950\/80 .text-white,
+.bg-slate-950\/80 .text-slate-300,
+.bg-green-500\/5 .text-green-400,
+.bg-green-500 .text-white {
+  color: white !important;
+}
+
+/* Border colors, divider lines, and card containers */
+.border-slate-200, .border-slate-200\/60, .border-slate-200\/50, .border-slate-100, .border-white\/10, .border-white\/5 {
+  border-color: var(--border-subtle) !important;
+}
+
+/* Ensure form input fields look outstanding in both modes */
+.contact-input, .contact-input-style {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--glass-border) !important;
+  background: var(--glass-bg) !important;
+  color: var(--text-primary) !important;
+  font-size: 0.825rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.contact-input::placeholder, .contact-input-style::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.contact-input:focus, .contact-input-style:focus {
+  border-color: var(--gradient-start) !important;
+  background: var(--glass-bg) !important;
+  box-shadow: 0 0 15px var(--gradient-glow-color);
+}
+
+/* Interactive card backgrounds and custom badges */
+.bg-orange-500\/10, .bg-orange-500\/20 {
+  background-color: var(--badge-bg) !important;
+}
+.border-orange-500\/20, .border-orange-500\/10 {
+  border-color: var(--badge-border) !important;
 }
