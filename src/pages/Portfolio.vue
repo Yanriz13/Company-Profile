@@ -428,7 +428,7 @@ const projects = [
     category: 'Website & Mobile',
     client: 'PT. Eka Akurasi Envitama',
     desc: 'Sistem Laporan Pengujian Laboratorium Terintegrasi.',
-    image: './public/assets/ekalab.png',
+    image: '/assets/ekalab.png',
     tech: ['Laravel', 'Vue.js', 'PostgreSQL', 'Docker'],
     details: {
       challenge:
@@ -446,7 +446,7 @@ const projects = [
     category: 'Website',
     client: 'Bank BPRS BTB',
     desc: 'Website resmi Bank BPRS BTB yang menyediakan informasi layanan perbankan, produk pembiayaan, profil perusahaan, berita terkini, serta kemudahan akses informasi bagi nasabah dan calon nasabah.',
-    image: './public/assets/fos.png',
+    image: '/assets/fos.png',
     tech: ['Nuxt.js', 'TailwindCSS', 'Node.js', 'MongoDB'],
     details: {
       challenge:

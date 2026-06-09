@@ -21,7 +21,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       <!-- Header -->
       <div class="text-center mb-12 md:mb-20">
-        <span class="glass px-4 py-1.5 rounded-full text-xs sm:text-sm text-orange-600 border border-orange-400/20"> OUR PORTFOLIO </span>
+        <span
+          class="glass px-4 py-1.5 rounded-full text-xs sm:text-sm text-orange-600 border border-orange-400/20"
+        >
+          OUR PORTFOLIO
+        </span>
 
         <h2 class="mt-4 text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight">
           Project yang <br />
@@ -29,13 +33,18 @@
         </h2>
 
         <p class="max-w-3xl mx-auto mt-4 text-sm sm:text-lg text-slate-300 leading-relaxed">
-          Solusi digital yang membantu bisnis meningkatkan kredibilitas, efisiensi, dan pertumbuhan secara signifikan.
+          Solusi digital yang membantu bisnis meningkatkan kredibilitas, efisiensi, dan pertumbuhan
+          secara signifikan.
         </p>
-        <p class="text-xs text-slate-400 mt-2 block lg:hidden">← Geser horizontal untuk melihat semua portofolio →</p>
+        <p class="text-xs text-slate-400 mt-2 block lg:hidden">
+          ← Geser horizontal untuk melihat semua portofolio →
+        </p>
       </div>
 
       <!-- Portfolio Grid: Horizontal Scroll on Mobile, 2 Columns on Desktop -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 scrollbar-none lg:grid lg:grid-cols-2 lg:gap-8 px-4 -mx-4 lg:px-0 lg:mx-0 pl-6 pr-6">
+      <div
+        class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 scrollbar-none lg:grid lg:grid-cols-2 lg:gap-8 px-4 -mx-4 lg:px-0 lg:mx-0 pl-6 pr-6"
+      >
         <div
           v-for="item in portfolios"
           :key="item.title"
@@ -51,11 +60,15 @@
 
           <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
             <div>
-              <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-500/20 font-bold">
+              <span
+                class="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-500/10 text-orange-600 border border-orange-500/20 font-bold"
+              >
                 {{ item.category }}
               </span>
 
-              <h4 class="mt-4 text-xl sm:text-2xl font-bold text-white group-hover:text-orange-400 duration-300 leading-snug">
+              <h4
+                class="mt-4 text-xl sm:text-2xl font-bold text-white group-hover:text-orange-400 duration-300 leading-snug"
+              >
                 {{ item.title }}
               </h4>
 
@@ -95,13 +108,13 @@ const portfolios = [
     title: 'Eka Akurasi Envitama',
     category: 'Website & Mobile',
     desc: 'Sistem Laporan Pengujian Laboratorium Terintegrasi.',
-    image: './public/assets/ekalab.png',
+    image: '/assets/ekalab.png',
   },
   {
     title: 'Bank BPRS BTB',
     category: 'Website',
     desc: 'Website resmi Bank BPRS BTB yang menyediakan informasi layanan perbankan, produk pembiayaan, profil perusahaan, berita terkini, serta kemudahan akses informasi bagi nasabah dan calon nasabah.',
-    image: './public/assets/fos.png',
-  }
+    image: '/assets/fos.png',
+  },
 ]
 </script>
