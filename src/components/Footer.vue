@@ -50,19 +50,27 @@
 
           <ul class="space-y-2.5 sm:space-y-4 text-xs sm:text-sm text-slate-500">
             <li>
-              <router-link to="/about" class="hover:text-orange-500 transition"> Tentang Kami </router-link>
+              <router-link to="/about" class="hover:text-orange-500 transition">
+                Tentang Kami
+              </router-link>
             </li>
 
             <li>
-              <router-link to="/services" class="hover:text-orange-500 transition"> Layanan </router-link>
+              <router-link to="/services" class="hover:text-orange-500 transition">
+                Layanan
+              </router-link>
             </li>
 
             <li>
-              <router-link to="/portfolio" class="hover:text-orange-500 transition"> Portfolio </router-link>
+              <router-link to="/portfolio" class="hover:text-orange-500 transition">
+                Portfolio
+              </router-link>
             </li>
 
             <li>
-              <router-link to="/contact" class="hover:text-orange-500 transition"> Kontak </router-link>
+              <router-link to="/contact" class="hover:text-orange-500 transition">
+                Kontak
+              </router-link>
             </li>
           </ul>
         </div>
@@ -72,21 +80,11 @@
           <h3 class="font-bold text-sm sm:text-base text-slate-900 mb-4 sm:mb-6">Kontak</h3>
 
           <ul class="space-y-2.5 sm:space-y-4 text-xs sm:text-sm text-slate-500">
-            <li class="flex items-center gap-1.5">
-              <span>📍</span> Jakarta, Indonesia
-            </li>
+            <li class="flex items-center gap-1.5"><span>📍</span> Jakarta, Indonesia</li>
 
-            <li class="flex items-center gap-1.5">
-              <span>📧</span> info@idevelop.id
-            </li>
+            <li class="flex items-center gap-1.5"><span>📧</span> yanuarizki12@gmail.com</li>
 
-            <li class="flex items-center gap-1.5">
-              <span>☎</span> +62 812 3456 7890
-            </li>
-
-            <li class="flex items-center gap-1.5">
-              <span>🟢</span> WhatsApp
-            </li>
+            <li class="flex items-center gap-1.5"><span>☎</span> +62 895 1812 3994</li>
           </ul>
         </div>
 
@@ -107,7 +105,9 @@
 
       <!-- Divider & Bottom Info -->
       <div class="border-t border-slate-200 mt-12 pt-6 sm:pt-8">
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-slate-400">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-slate-400"
+        >
           <p class="text-center sm:text-left">© 2026 iDevelop. All Rights Reserved.</p>
 
           <div class="flex gap-4 sm:gap-6">
@@ -120,5 +120,4 @@
   </section>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
