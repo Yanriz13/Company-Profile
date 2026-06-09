@@ -355,13 +355,13 @@ const team = [
   {
     name: 'Adji Supriyono',
     role: 'CEO & Founder',
-    image: 'public/assets/2.jpg',
+    image: '/assets/2.jpg',
     bio: 'Berpengalaman 8+ tahun memimpin strategi bisnis digital & integrasi sistem.',
   },
   {
     name: 'Yanuar Rizki',
     role: 'Lead Software Engineer',
-    image: 'public/assets/3.jpg',
+    image: '/assets/3.jpg',
     bio: 'Menghadirkan desain interface yang modern, bersih, intuitif, dan berorientasi pengguna.',
   },
 ]
